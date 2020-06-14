@@ -131,3 +131,4 @@ dmypy.json
 # ignore zips and csv's
 *.csv
 *.zip
+data/
