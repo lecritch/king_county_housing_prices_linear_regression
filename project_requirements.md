@@ -147,7 +147,7 @@ The modeling phase in this project should be a brief stop-over as you are jumpin
 
 ### 5. Evaluation
 
-Your goal here is not to build just one model; it is to build many models and then choose the best one. In this case (which is different from future machine learning models), your goal is to gain additional insight into the housing sales data from 2019 in King County, as opposed to building a generalizable model that can make predictions about unseen data.
+**Your goal here is not to build just one model; it is to build many models and then choose the best one.** In this case (which is different from future machine learning models), your goal is to gain additional insight into the housing sales data from 2019 in King County, as opposed to building a generalizable model that can make predictions about unseen data.
 
 **In other words, you are not trying to build a tool to compete with the Zillow Zestimate to predict home values.**
 
