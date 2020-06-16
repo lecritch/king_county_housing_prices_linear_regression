@@ -19,11 +19,13 @@ def merge_tables():
     tables = [rps, res_build, parcel]
     
     for table in tables:
+        # make all column names for all tables lower case:
+        cfs.lower_cols(table)
+        
         # pad major/minor columns and create major_minor column:
         cfs.maj_min_index(table)
         
-        # make all column names for all tables lower case:
-        cfs.lower_cols(table)
+        
     
     
     ## rps specific modifications: ##
