@@ -50,13 +50,24 @@ def maj_min_index(table):
     table['Minor'] = table['Minor'].apply(minor_pad)
     
     # add maj_min column
-    table['maj_min'] = table['Major'] + table['Minor']
+    table['major_minor'] = table['Major'] + table['Minor']
     
     # drop old major/minor columns
     table.drop(labels = ['Major', 'Minor'], axis = 1, inplace = True)
     
-    # set index
-    table.set_index(keys = 'maj_min', inplace = True)
+    # make 'major_minor' column the first column
+    col_name = 'major_minor'
+    last_col = table.pop(col_name)
+    table.insert(1, col_name, last_col)
+    
+    return table
+
+def lower_cols(table):
+    """
+    A function that takes a table and makes all the columns lower case
+    table (pd dataframe)
+    """
+    table.rename(columns = str.lower, inplace=True)
     
     return table
 
