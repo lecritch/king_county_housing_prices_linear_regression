@@ -41,19 +41,20 @@ def maj_min_index(table):
     concatenates Major and Minor together in a new column with the 10-digit number and sets it as the table index. 
     It also drops the old major/minor columns from the table
     """
+    
     # change minor/minor to str
-    table['Major'] = table['Major'].astype(str)
-    table['Minor'] = table['Minor'].astype(str)
+    table['major'] = table['major'].astype(str)
+    table['minor'] = table['minor'].astype(str)
     
     # add padding to major/minor
-    table['Major'] = table['Major'].apply(major_pad)
-    table['Minor'] = table['Minor'].apply(minor_pad)
+    table['major'] = table['major'].apply(major_pad)
+    table['minor'] = table['minor'].apply(minor_pad)
     
     # add maj_min column
-    table['major_minor'] = table['Major'] + table['Minor']
+    table['major_minor'] = table['major'] + table['minor']
     
     # drop old major/minor columns
-    table.drop(labels = ['Major', 'Minor'], axis = 1, inplace = True)
+    table.drop(labels = ['major', 'minor'], axis = 1, inplace = True)
     
     # make 'major_minor' column the first column
     col_name = 'major_minor'
