@@ -33,7 +33,7 @@ def merge_tables():
     rps2019 = rps[rps['documentdate'].dt.year == 2019]
     
     # choose relevant property type items
-    prop_types = [11, 12, 14, 18, 19]
+    prop_types = [11, 12, 14, 18]
     rps2019 = rps2019[rps2019['propertytype'].isin(prop_types)]
     
     # ignore all sales prices $0 or below:
@@ -58,13 +58,13 @@ def merge_tables():
     df = rps_res_build.merge(parcel, on='major_minor', suffixes=("", "_parcel"))
     
     # isolate down to relevant features
-    df = df.loc[:, ['saleprice', 'sqfttotliving', 'yrbuilt', 'yrrenovated', 'bedrooms',
-                 'zipcode', 'sqftopenporch', 'sqftenclosedporch', 'sqftdeck', 'heatsystem',
-                 'heatsource','bathhalfcount', 'bath3qtrcount', 'bathfullcount', 'condition',
-                 'hbuasifvacant', 'inadequateparking', 'mtrainier', 'olympics', 'cascades', 
-                 'territorial', 'seattleskyline', 'pugetsound', 'lakewashington', 'lakesammamish',
-                 'smalllakerivercreek', 'otherview', 'wfntlocation', 'trafficnoise', 'airportnoise',
-                 'powerlines', 'othernuisances', 'adjacentgreenbelt']]
+#     df = df.loc[:, ['saleprice', 'sqfttotliving', 'yrbuilt', 'yrrenovated', 'bedrooms',
+#                  'zipcode', 'sqftopenporch', 'sqftenclosedporch', 'sqftdeck', 'heatsystem',
+#                  'heatsource','bathhalfcount', 'bath3qtrcount', 'bathfullcount', 'condition',
+#                  'hbuasifvacant', 'inadequateparking', 'mtrainier', 'olympics', 'cascades', 
+#                  'territorial', 'seattleskyline', 'pugetsound', 'lakewashington', 'lakesammamish',
+#                  'smalllakerivercreek', 'otherview', 'wfntlocation', 'trafficnoise', 'airportnoise',
+#                  'powerlines', 'othernuisances', 'adjacentgreenbelt']]
     
     return df
 
