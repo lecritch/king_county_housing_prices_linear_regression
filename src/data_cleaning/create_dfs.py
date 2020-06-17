@@ -135,5 +135,4 @@ def rps_2019_AF_df():
         
     return rps_2019
 
-def ll_data():
     
