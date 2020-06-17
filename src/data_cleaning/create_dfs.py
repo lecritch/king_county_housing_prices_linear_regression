@@ -134,3 +134,6 @@ def rps_2019_AF_df():
         rps_2019[col] = rps_2019[col].astype('category').cat.codes
         
     return rps_2019
+
+def ll_data():
+    
