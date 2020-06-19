@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set_style('deep')
+sns.set_style('dark')
 
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
@@ -79,8 +79,7 @@ def model(lst_of_features, df, target_var):
 def normality_assumption(model):
     # plot normality assumption
     fig, ax = plt.subplots(figsize = (15, 10))
-    figure = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True, ax = ax, 
-                                scatter_kws={"color": "#0055AA"}, line_kws={"color": "#8D021F"});
+    figure = sm.graphics.qqplot(model.resid, dist=stats.norm, line='45', fit=True, ax = ax);
     ax.set_title('QQ-Plot of Residuals', fontsize = 25)
     return plt.show()
 
