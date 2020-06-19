@@ -1,3 +1,15 @@
+# imports:
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+sns.set_style('dark')
+
+from statsmodels.formula.api import ols
+import statsmodels.api as sm
+import scipy.stats as stats
+
+
 def check_for_assumptions(modelname):
 #     rsquared = modelname.rsquared
 #     params = modelname.params
@@ -56,6 +68,11 @@ def model(lst_of_features, df, target_var):
     
     print(model.summary())
     # view r^2 and model summary:
+    
+    # check assumptions
+#     normality_assumption(model)
+#     homo_assumption(model, df)
+    
     return model
 
 
@@ -67,7 +84,7 @@ def normality_assumption(model):
     return plt.show()
 
 
-def homo_assumption(model):
+def homo_assumption(model, df):
     # plot homoscadasicity assumption
     fig, ax = plt.subplots(figsize = (15, 10))
     plt.scatter(model.predict(), model.resid)
