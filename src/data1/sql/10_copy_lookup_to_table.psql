@@ -1,0 +1,2 @@
+--Copy the csv contents of the lookup data into the table
+COPY lookup FROM STDIN WITH (FORMAT CSV);

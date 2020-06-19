@@ -1,0 +1,3 @@
+-- Copy the csv contents of the real_property_sales data into the table
+COPY real_property_sales FROM STDIN WITH (FORMAT CSV)
+ 
