@@ -117,3 +117,43 @@ def heatmap_multi(x_features, df):
     ax.set_title('Heat Map of Feature Multicollinearity', fontsize = 30)
     
     return plt.show()
+
+
+def Cohen_d(group1, group2):
+    """
+    Takes two groups and returns the cohen d effect size
+    """
+    diff = group1.mean() - group2.mean()
+
+    n1, n2 = len(group1), len(group2)
+    var1 = group1.var()
+    var2 = group2.var()
+    pooled_var = (n1 * var1 + n2 * var2) / (n1 + n2)
+    
+    d = diff / np.sqrt(pooled_var)
+    print(f"Effect Size for difference in Home Prices for the two groups (Cohen's d): {d}")
+    
+    return d
+
+
+def ttest_vis(group1, group2, test_result):
+    """
+    takes 2 samples and a t-test result and returns a visualisation of the critical value and t statistic.
+    """
+    xs = np.linspace(-4, 4, 200)
+    # use stats.t.pdf to get values on the probability density function for the t-distribution
+    # the second argument is the degrees of freedom
+    ys = stats.t.pdf(xs, len(group1)+len(group2)-2, 0, 1)
+    t_crit = np.round(stats.t.ppf(1 - 0.05, df=len(group1)+len(group2)-2),3)
+
+    fig = plt.figure(figsize=(15,8))
+    ax = fig.gca()
+
+    # plot the lines using matplotlib's plot function:
+    ax.plot(xs, ys, linewidth=3, color='darkblue', alpha=.75)
+
+    ax.axvline(t_crit,color='green',linestyle='--',lw=4,label='critical t-value', alpha=.75)
+    ax.axvline(test_result[0],color='red',linestyle='--',lw=4,label='test t-stat', alpha=.75)
+    ax.legend()
+    ax.fill_betweenx(ys,xs,t_crit,where= xs > t_crit)
+    return plt.show()
