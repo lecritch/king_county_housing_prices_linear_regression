@@ -1,3 +1,17 @@
+def lower_cols(lst_of_dfs):
+    """
+    This function takes a list of pandas dataframes and makes all the column headers lower case
+    Returns the updated dfs
+    """
+    for df in lst_of_dfs:
+        colnames = list(map(lambda x: x.lower(), df.columns))
+        df.columns = colnames
+        
+    return lst_of_dfs
+
+
+
+
 def padded(row, pad_to):
     """
     This function takes an index item and pads it with 0's at the beginning
@@ -35,7 +49,7 @@ def minor_pad(row):
     return num_zeros * '0' + row
 
 
-def maj_min_index(table):
+def maj_min_col(table):
     """
     Takes a table with a Minor and Major column, pads the Minor and Major columns with 0's at the beginning and then 
     concatenates Major and Minor together in a new column with the 10-digit number and sets it as the table index. 

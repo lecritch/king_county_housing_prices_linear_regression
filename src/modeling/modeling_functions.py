@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set_style('deep')
+sns.set_style('dark')
 
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
