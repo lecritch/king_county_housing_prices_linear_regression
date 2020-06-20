@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set_style('dark')
+sns.set_style('darkgrid')
 
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
@@ -95,4 +95,25 @@ def homo_assumption(model, df):
     plt.ylabel('Model Residuals', fontsize = 18)
     ax.tick_params(labelsize=10)
     plt.plot(model.predict(), [0 for i in range(len(df))], color = 'red')
+    return plt.show()
+
+def heatmap_multi(x_features, df):
+    """
+    Creates a heatmap of all the x feautres in a model to show multicollinearity.
+    x_features (lst):  A list of strings of the column header names of the x features in the model
+    df:  the dataframe where the features belong
+    returns the plotted heatmap
+    """
+    df_x_feats = df.loc[:, x_features]
+
+    x_corrs = df_x_feats.corr()
+
+    mask = np.triu(np.ones_like(x_corrs, dtype=np.bool))
+    f, ax = plt.subplots(figsize = (18, 16))
+    sns.heatmap(x_corrs, mask = mask, cmap="YlGnBu", vmax = 0.3, 
+            center = 0, square = True, linewidths = 0.5, 
+            cbar_kws = {'shrink': 0.5})
+    ax.tick_params(axis='both', which='major', labelsize=20, labelrotation = 45)
+    ax.set_title('Heat Map of Feature Multicollinearity', fontsize = 30)
+    
     return plt.show()
