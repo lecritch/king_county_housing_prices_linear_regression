@@ -1,0 +1,3 @@
+
+ -- Copy the csv contents of the parcel data into the table
+ COPY parcel FROM STDIN WITH (FORMAT CSV);

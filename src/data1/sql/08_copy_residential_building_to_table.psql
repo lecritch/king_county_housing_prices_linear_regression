@@ -1,0 +1,3 @@
+
+ -- Copy the csv contents of the residential_building data into the table
+COPY residential_building FROM STDIN WITH (FORMAT CSV);
