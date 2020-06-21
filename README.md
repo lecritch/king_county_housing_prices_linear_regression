@@ -16,6 +16,17 @@ In addition, our group of first-time homebuyers has come to us with a lot of que
 Higher square footage increases the sale price
 Having a porch increase sale price
 Homes with a ‘nuisance’ such as power lines, traffic noise, airport noise, etc. will have a lower sales price
+This project investigates the factors that determine housing prices in King County, Washington.  Our model and investigation is directed towards first time home buyers who are looking to live in a single family home.  Many factors contribute to real estate sales prices, and we aim to discover what some of these driving factors are. 
+
+### Aims:
+
+This project aims to:
+- Investigate some of the features that appear to have a relationship with King County housing sale prices
+- Develop a model that predicts housing prices in King County using the features that we identify
+- Validate the following claims made by real estate professions:
+    - Higher square footage increases home sale price
+    - The presence of a nuisance (power lines, traffic noise, airport noise) decreases home sale price
+    - Having a porch increases home sale price
 
 ### Definitions:
 
@@ -43,6 +54,14 @@ Our analysis began with the full data tables.  We made an initial cut of the dat
 - sales taking place between Jan 1, 2019 and December 31, 2019
 - sales of only residential properties, all commercial properties were excluded for this analysis
 
+- Real Property Sales
+- Parcel
+- Residential Building
+- Lookup
+
+Our analysis was only looking at the most recent data from 2019 so the data was filtered to this accordingly. 
+
+Additional information about the table identifiers can be found [here](https://www5.kingcounty.gov/sdc/Metadata.aspx?Layer=parcel#AttributeInfo).
 
 Note that this modelling analysis contains the 'stream lined' version iterations from getting from our first simple model to our final model.  To get a more in depth view of our exploration process, mistakes and tears - I mean - dead ends, please refer to [Leana's](exploratory/lmc_notebooks), [Luluva's](exploratory/ll_notebooks) and [Amanda's](exploratory/asp_notebooks) notebooks.
 
