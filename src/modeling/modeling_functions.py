@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set_style('dark')
+sns.set_style('darkgrid')
 
 from statsmodels.formula.api import ols
 import statsmodels.api as sm
@@ -95,4 +95,65 @@ def homo_assumption(model, df):
     plt.ylabel('Model Residuals', fontsize = 18)
     ax.tick_params(labelsize=10)
     plt.plot(model.predict(), [0 for i in range(len(df))], color = 'red')
+    return plt.show()
+
+def heatmap_multi(x_features, df):
+    """
+    Creates a heatmap of all the x feautres in a model to show multicollinearity.
+    x_features (lst):  A list of strings of the column header names of the x features in the model
+    df:  the dataframe where the features belong
+    returns the plotted heatmap
+    """
+    df_x_feats = df.loc[:, x_features]
+
+    x_corrs = df_x_feats.corr()
+
+    mask = np.triu(np.ones_like(x_corrs, dtype=np.bool))
+    f, ax = plt.subplots(figsize = (18, 16))
+    sns.heatmap(x_corrs, mask = mask, cmap="YlGnBu", vmax = 0.3, 
+            center = 0, square = True, linewidths = 0.5, 
+            cbar_kws = {'shrink': 0.5})
+    ax.tick_params(axis='both', which='major', labelsize=20, labelrotation = 45)
+    ax.set_title('Heat Map of Feature Multicollinearity', fontsize = 30)
+    
+    return plt.show()
+
+
+def Cohen_d(group1, group2):
+    """
+    Takes two groups and returns the cohen d effect size
+    """
+    diff = group1.mean() - group2.mean()
+
+    n1, n2 = len(group1), len(group2)
+    var1 = group1.var()
+    var2 = group2.var()
+    pooled_var = (n1 * var1 + n2 * var2) / (n1 + n2)
+    
+    d = diff / np.sqrt(pooled_var)
+    print(f"Effect Size for difference in Home Prices for the two groups (Cohen's d): {d}")
+    
+    return d
+
+
+def ttest_vis(group1, group2, test_result):
+    """
+    takes 2 samples and a t-test result and returns a visualisation of the critical value and t statistic.
+    """
+    xs = np.linspace(-4, 4, 200)
+    # use stats.t.pdf to get values on the probability density function for the t-distribution
+    # the second argument is the degrees of freedom
+    ys = stats.t.pdf(xs, len(group1)+len(group2)-2, 0, 1)
+    t_crit = np.round(stats.t.ppf(1 - 0.05, df=len(group1)+len(group2)-2),3)
+
+    fig = plt.figure(figsize=(15,8))
+    ax = fig.gca()
+
+    # plot the lines using matplotlib's plot function:
+    ax.plot(xs, ys, linewidth=3, color='darkblue', alpha=.75)
+
+    ax.axvline(t_crit,color='green',linestyle='--',lw=4,label='critical t-value', alpha=.75)
+    ax.axvline(test_result[0],color='red',linestyle='--',lw=4,label='test t-stat', alpha=.75)
+    ax.legend()
+    ax.fill_betweenx(ys,xs,t_crit,where= xs > t_crit)
     return plt.show()
