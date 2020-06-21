@@ -4,6 +4,18 @@ An analysis and model by Luluva Lakdawala, Amanda Potter and Leana Critchell
 
 ## Setting the Scene:
 
+The factors that influence housing prices interest many people, from homeowners hoping to improve the market potential of their current homes, to policymakers making decisions about investment in public projects. Often we rely on the "expert judgement" of real estate professionals to determine which factors are the most important, but these recommendations may be out-of-date, irrelevant to our particular housing market, or otherwise inaccurate.
+
+### Aims:
+
+This project aims to develop a model that predicts housing prices in King County using the features that we identify
+For our purposes, we will be creating this analysis for a group of first-time homebuyers in the King County, WA area.  Our group is mostly younger couples who are interested in the long-term investment value in their first home purchase.  In order to get the most ‘bang for the buck’ our home buyers want to understand how features in homes will impact sales price, and especially how to use this information to find properties that are a good value.
+
+In addition, our group of first-time homebuyers has come to us with a lot of questions about so-called ‘expert advice’ they have received since they started to look into purchasing a home.  These claims include:
+
+Higher square footage increases the sale price
+Having a porch increase sale price
+Homes with a ‘nuisance’ such as power lines, traffic noise, airport noise, etc. will have a lower sales price
 This project investigates the factors that determine housing prices in King County, Washington.  Our model and investigation is directed towards first time home buyers who are looking to live in a single family home.  Many factors contribute to real estate sales prices, and we aim to discover what some of these driving factors are. 
 
 ### Aims:
@@ -32,6 +44,16 @@ This project aims to:
 ### Data:
 
 The data used in this project is from the King County Department of Assessments website and can be found [here](https://info.kingcounty.gov/assessor/DataDownload/default.aspx).  From this link, you can find the files/tables that were used in this project:
+- Real property sales; contains data about the sale of homes in King County
+- Residential building; contains details about the buildings in King County
+- Parcel; contains details about parcels in King County
+- Lookup; contains details about many of the features in the other tables (e.g., sale insturment)
+
+### Methodology
+Our analysis began with the full data tables.  We made an initial cut of the data to include the following:
+- sales taking place between Jan 1, 2019 and December 31, 2019
+- sales of only residential properties, all commercial properties were excluded for this analysis
+
 - Real Property Sales
 - Parcel
 - Residential Building
