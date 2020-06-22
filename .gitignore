@@ -132,3 +132,5 @@ dmypy.json
 *.csv
 *.zip
 data/
+
+.DS_Store

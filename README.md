@@ -18,15 +18,56 @@ Having a porch increase sale price
 Homes with a ‘nuisance’ such as power lines, traffic noise, airport noise, etc. will have a lower sales price
 This project investigates the factors that determine housing prices in King County, Washington.  Our model and investigation is directed towards first time home buyers who are looking to live in a single family home.  Many factors contribute to real estate sales prices, and we aim to discover what some of these driving factors are. 
 
-### Aims:
+### Directory of Repo:
+├── README.md:  Main README explaining project
 
-This project aims to:
-- Investigate some of the features that appear to have a relationship with King County housing sale prices
-- Develop a model that predicts housing prices in King County using the features that we identify
-- Validate the following claims made by real estate professions:
-    - Higher square footage increases home sale price
-    - The presence of a nuisance (power lines, traffic noise, airport noise) decreases home sale price
-    - Having a porch increases home sale price
+├── [exploratory](exploratory)
+
+│   ├── asp_model.ipynb
+
+│   ├── [asp_notebooks](exploratory/asp_notebooks):  Contains Amanda's exploratory notebooks
+
+│   │   ├── [asp_cleaned_final](exploratory/asp_notebooks/asp_cleaned_final)
+
+│   │   └── [asp_working](exploratory/asp_notebooks/asp_working)
+
+│   ├── [get_data_script.ipynb](exploratory/get_data_script.ipynb):  Run this script to download data
+
+│   ├── [ll_notebooks](exploratory/ll_notebooks):  Contains Luluva's exploratory notebooks
+
+│   ├── [lmc_notebooks](exploratory/lmc_notebooks):  Contains Leana's exploratory notebooks
+
+│   ├── [merged_filtered_df](exploratory/merged_filtered_df):  Final collated dataframe used for analysis/modelling
+
+│   ├── [project_requirements.md](exploratory/project_requirements.md):  Contains details of project requirements
+
+├── [reports](reports):  Folder contains final analysis/modeling notebook
+
+│   └── [final_analysis_notebook.ipynb](reports/final_analysis_notebook.ipynb):  Final analysis and modelling
+
+│   └── [images](reports/images):  Contains images from final notebook used in README
+
+└── [src](src)
+
+|   ├── README.MD
+    
+|    ├── [data](src/data):  contains sql databases which Amanada used for her data gathering.
+    
+|   │   ├── data_collection.py
+    
+|   │   ├── [sql](src/data/sql):  Contains sql tables
+    
+|   │   ├── sql_utils.py
+    
+|   ├── [data_cleaning](src/data_cleaning):  Contains data cleaning functions
+    
+|   │   ├── [cleaning_functions.py](src/data_cleaning/cleaning_functions.py):  Functions used for data cleaning
+    
+|   │   └── create_dfs.py
+    
+|   └── [modeling](src/modeling):  Contains functions used for modelling
+    
+|       └── [modeling_functions.py](src/modeling/modeling_functions.py):  Functions used for modelling
 
 ### Definitions:
 
@@ -65,15 +106,58 @@ Additional information about the table identifiers can be found [here](https://w
 
 Note that this modelling analysis contains the 'stream lined' version iterations from getting from our first simple model to our final model.  To get a more in depth view of our exploration process, mistakes and tears - I mean - dead ends, please refer to [Leana's](exploratory/lmc_notebooks), [Luluva's](exploratory/ll_notebooks) and [Amanda's](exploratory/asp_notebooks) notebooks.
 
+### Summary of Model:
+
+#### Target:  Sales Price
+
+After filtering our data to be relevant to first time home buyers, we can visualise the histribution of sales prices in King County in 2019:
+
+![saleshist.png](reports/images/saleshist.png)
+
+#### Features:
+
+After many iterations and exploration of the data, the features we chose for our final model were:
+- Total living square footage
+- Total bathroom count
+- Porch size
+- Deck size
+- Building grade (12 categories)
+- Township (7 categories)
+
+We can visualise the relationship between our features in the following heatmap:
+
+![heatmap.png](reports/images/heatmap.png)
+
+Viewing the scale on the side of this image, we can see that the max correlation between the features is 0.3.
+
+#### Assumptions:
+
+Our final model produced an $R^2$ score of 0.702.  While this is somewhat high, we failed to meet the normality assumption and mildly met the homoscedasticity assumption as can be see from the following visualisations:
+
+![qqplot.png](reports/images/qqplot.png)
+
+![scatter.png](reports/images/scatter.png)
+
 ### Analysis Takeaways, Future Investigations and Recommendations:
 
 - Our analysis finds square footage of total living area, porch and deck, bathroom count, building grade and township to be some of the more significant driving factors of home sale prices.
-- We find that a higher square footage does increase home sale prices in King County
-- We find that the presence of nuisances has little affect on home sale prices in King County
-- We find that having a porch does increase the home sale price in King County
+- We find that a higher square footage does increase home sale prices in King County as can be seen by the linear relationship between the two features here:
+![sqft.png](reports/images/sqfttot.png)
+
+- We find that the presence of nuisances has little affect on home sale prices in King County.  More specifically, airport noise, which is the biggest nuisance factor in King County, has litte effect on home sale prices which we can see for the below bar graph (see [final notebook](reports/final_analysis_notebook.ipynb) for full statistical test results):
+
+![barairport.png](reports/images/barairport.png)
+
+- We find that having a porch does increase the home sale price in King County which again, we can see in the following bar graph (see [final notebook](reports/final_analysis_notebook.ipynb) for full statistical test results):
+
+![barporch.png](reports/images/barporch.png)
+
+#### Further Investigations:
+
 - Is there a large difference in pricing when looking at condominiums?
 - What are the drivers of price in the upper bounds of the market?
+
+#### Recommendations:
 - Think about buying smaller and adding extension later
 - Consider homes without decks/porches and add later to increase value
 - Bathrooms are expensive - look for homes that already have the number of baths you desire even at the expense of square footage
-
