@@ -21,53 +21,29 @@ This project investigates the factors that determine housing prices in King Coun
 ### Directory of Repo:
 ```
 ├── README.md:  Main README explaining project
-
 ├── [exploratory](exploratory)
-
 │   ├── asp_model.ipynb
-
 │   ├── [asp_notebooks](exploratory/asp_notebooks):  Contains Amanda's exploratory notebooks
-
 │   │   ├── [asp_cleaned_final](exploratory/asp_notebooks/asp_cleaned_final)
-
 │   │   └── [asp_working](exploratory/asp_notebooks/asp_working)
-
 │   ├── [get_data_script.ipynb](exploratory/get_data_script.ipynb):  Run this script to download data
-
 │   ├── [ll_notebooks](exploratory/ll_notebooks):  Contains Luluva's exploratory notebooks
-
 │   ├── [lmc_notebooks](exploratory/lmc_notebooks):  Contains Leana's exploratory notebooks
-
 │   ├── [merged_filtered_df](exploratory/merged_filtered_df):  Final collated dataframe used for analysis/modelling
-
 │   ├── [project_requirements.md](exploratory/project_requirements.md):  Contains details of project requirements
-
 ├── [reports](reports):  Folder contains final analysis/modeling notebook
-
 │   └── [final_analysis_notebook.ipynb](reports/final_analysis_notebook.ipynb):  Final analysis and modelling
-
 │   └── [images](reports/images):  Contains images from final notebook used in README
-
 └── [src](src)
-
-|   ├── README.MD
-    
-|    ├── [data](src/data):  contains sql databases which Amanada used for her data gathering.
-    
-|   │   ├── data_collection.py
-    
-|   │   ├── [sql](src/data/sql):  Contains sql tables
-    
-|   │   ├── sql_utils.py
-    
-|   ├── [data_cleaning](src/data_cleaning):  Contains data cleaning functions
-    
-|   │   ├── [cleaning_functions.py](src/data_cleaning/cleaning_functions.py):  Functions used for data cleaning
-    
-|   │   └── create_dfs.py
-    
-|   └── [modeling](src/modeling):  Contains functions used for modelling
-    
+|   ├── README.MD    
+|    ├── [data](src/data):  contains sql databases which Amanada used for her data gathering.    
+|   │   ├── data_collection.py    
+|   │   ├── [sql](src/data/sql):  Contains sql tables    
+|   │   ├── sql_utils.py    
+|   ├── [data_cleaning](src/data_cleaning):  Contains data cleaning functions    
+|   │   ├── [cleaning_functions.py](src/data_cleaning/cleaning_functions.py):  Functions used for data cleaning    
+|   │   └── create_dfs.py    
+|   └── [modeling](src/modeling):  Contains functions used for modelling    
 |       └── [modeling_functions.py](src/modeling/modeling_functions.py):  Functions used for modelling
 ```
 ### Definitions:
