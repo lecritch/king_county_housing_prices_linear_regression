@@ -19,6 +19,7 @@ Homes with a ‘nuisance’ such as power lines, traffic noise, airport noise, e
 This project investigates the factors that determine housing prices in King County, Washington.  Our model and investigation is directed towards first time home buyers who are looking to live in a single family home.  Many factors contribute to real estate sales prices, and we aim to discover what some of these driving factors are. 
 
 ### Directory of Repo:
+```
 ├── README.md:  Main README explaining project
 
 ├── [exploratory](exploratory)
@@ -68,7 +69,7 @@ This project investigates the factors that determine housing prices in King Coun
 |   └── [modeling](src/modeling):  Contains functions used for modelling
     
 |       └── [modeling_functions.py](src/modeling/modeling_functions.py):  Functions used for modelling
-
+```
 ### Definitions:
 
 - Single family home:
